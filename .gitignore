@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+.svn/
+*.log
+.vscode/
+node_modules/
+npm-debug.log
+nohup.out
+lib/
+.jshintignore
+.jshintrc
+logs/
+coverage.html
+out/
+package-lock.json

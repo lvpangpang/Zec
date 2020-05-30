@@ -1,0 +1,30 @@
+{
+  "name": "zec",
+  "version": "1.0.3",
+  "description": "这是一个从0开始搭建的react组件库，包含了组件，组件测试，组件demo以及说明文档。",
+  "preferGlobal": true,
+  "author": "574818075@qq.com",
+  "license": "ISC",
+  "main": "index.js",
+  "devDependencies": {
+    "@babel/core": "^7.10.1",
+    "@babel/runtime": "^7.10.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "rollup": "^2.10.9",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-jsx": "^1.0.3",
+    "rollup-plugin-postcss": "^3.1.1",
+    "rollup-plugin-scss": "^2.5.0",
+    "rollup-plugin-stylus-css-modules": "^1.5.0",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "stylus": "^0.54.7",
+    "typescript": "^3.9.3"
+  }
+}

@@ -1,0 +1,32 @@
+.pp-toast
+  display none 
+  position fixed
+  left 0 
+  top 0
+  z-index 1000
+  width 100% 
+  height 100%
+  justify-content center 
+  align-items center
+  .toast-box 
+    max-width 198px;
+    min-width 56px;
+    display table;
+    padding 8px 30px;
+    border-radius 4px;
+    background-color rgba(0, 0, 0, 0.85);
+    font-size 14px;
+    line-height 22px;
+    color #fff;
+    text-align center;
+  .pp-toast-fade-in 
+    opacity: 1;
+    animation: fadein 0.4s ease-in;
+    -webkit-animation: fadein 0.4s ease-in;
+  
+  @-webkit-keyframes fadein {
+    0%   { opacity: 0 }
+    100% { opacity: 1 }
+  }
+.pp-toast-show
+  display -webkit-flex
