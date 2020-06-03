@@ -5,7 +5,9 @@ const postcss = require('rollup-plugin-postcss');
 const tsConfig = require('./tsconfig.json');
 
 let list = fs.readdirSync('./src');
-let res = {};
+let res = {
+  index: './src/index.ts'
+};
 list.forEach((item) => {
   if(!(item === 'index.ts' || item === 'style')) {
     res[item] = `./src/${item}/index.tsx`;

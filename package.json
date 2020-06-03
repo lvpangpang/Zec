@@ -5,7 +5,7 @@
   "preferGlobal": true,
   "author": "574818075@qq.com",
   "license": "ISC",
-  "main": "index.js",
+  "main": "es/index/index.js",
   "devDependencies": {
     "@babel/runtime": "^7.10.1",
     "@types/react": "^16.9.2",
