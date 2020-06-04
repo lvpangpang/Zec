@@ -3,25 +3,40 @@ import './index.less';
 
 interface Props {
 
-  // 主题 默认为primary
-  type?: 'primary' | 'success' | 'error' | 'warning',
+  // 内容
+  html?: any,
+
+  // 样式
+  className?: string,
 
   // 按钮是否被🚫
   disabled?: boolean,
-  
-  // 内容
-  children?: any,
 
   // 点击回调的事件
-  click?: React.EventHandler<React.MouseEvent>
+  onClick?: React.EventHandler<React.MouseEvent>
+  
+  // loading
+  loading?: boolean,
+
+  // 超链接
+  href?: string,
+
+  // 主题
+  type?: 'primary' | 'success' | 'error' | 'warning',
+
+  // 样式
+  style?: string,
+
+  // 大小
+  size?: 'small' | 'large'
 }
 
 function Button(props: Props) {
   
-  const { type='primary', disabled=false, children } = props;
+  const { type='primary', disabled=false, children, onClick=() => {} } = props;
 
   return (
-    <div className='zec-button' onClick={ !disabled ? props.click : function() {}}>
+    <div className='zec-button' onClick={ !disabled && onClick}>
       <div className={`zec-${disabled ? 'disabled' : type}`}>
         {children}
       </div>
