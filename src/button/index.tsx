@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './index.styl';
+import './index.less';
 
 interface Props {
 
@@ -21,8 +21,8 @@ function Button(props: Props) {
   const { type='primary', disabled=false, children } = props;
 
   return (
-    <div className='pp-button' onClick={ !disabled ? props.click : function() {}}>
-      <div className={`pp-${disabled ? 'disabled' : type}`}>
+    <div className='zec-button' onClick={ !disabled ? props.click : function() {}}>
+      <div className={`zec-${disabled ? 'disabled' : type}`}>
         {children}
       </div>
     </div>

@@ -6,7 +6,7 @@ const tsConfig = require('./tsconfig.json');
 
 let list = fs.readdirSync('./src');
 let res = {
-  index: './src/index.ts'
+  // index: './src/index.ts'
 };
 list.forEach((item) => {
   if(!(item === 'index.ts' || item === 'style')) {
