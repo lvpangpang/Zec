@@ -1,4 +1,17 @@
 @import '../style/index.less';
+
 .zec-button {
-  background: red;
+  height: 24px;
+  line-height: 24px;
+  font-size: @font-md;
+  color: #fff;
+  &-inner {
+    height: 100%;
+    padding: @v-spacing-md @h-spacing-md;
+    border-radius: @radius-xs;
+    text-align: center;
+  }
+  &-primary {
+    background: @primary-color;
+  }
 }

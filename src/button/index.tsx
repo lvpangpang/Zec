@@ -2,9 +2,7 @@ import * as React from 'react';
 import './index.less';
 
 interface Props {
-
-  // 内容
-  html?: any,
+  children: any
 
   // 样式
   className?: string,
@@ -13,7 +11,7 @@ interface Props {
   disabled?: boolean,
 
   // 点击回调的事件
-  onClick?: React.EventHandler<React.MouseEvent>
+  onClick?: Function,
   
   // loading
   loading?: boolean,
@@ -33,11 +31,27 @@ interface Props {
 
 function Button(props: Props) {
   
-  const { type='primary', disabled=false, children, onClick=() => {} } = props;
+  const {
+    children,
+    className,
+    disabled=false,
+    onClick=() => {},
+    loading=false,
+    href,
+    type='primary',
+    style={},
+    size
+  } = props;
+
+  const _onClick = () => {
+    if(!disabled) {
+      onClick();
+    }
+  };
 
   return (
-    <div className='zec-button' onClick={ !disabled && onClick}>
-      <div className={`zec-${disabled ? 'disabled' : type}`}>
+    <div style={style} className={`zec-button ${className || ''}`} onClick={_onClick}>
+      <div className={`zec-button-inner zec-button-${type}`}>
         {children}
       </div>
     </div>
