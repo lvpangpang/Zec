@@ -1,17 +1,33 @@
 @import '../style/index.less';
 
 .zec-button {
-  height: 24px;
-  line-height: 24px;
+  height: 48px;
+  line-height: 48px;
   font-size: @font-md;
   color: #fff;
   &-inner {
     height: 100%;
-    padding: @v-spacing-md @h-spacing-md;
-    border-radius: @radius-xs;
+    border-radius: @radius-md;
     text-align: center;
+    padding: 0 20px;
+  }
+  &-active {
+    color: @fill-tap !important;
+    opacity: .8;
   }
   &-primary {
     background: @primary-color;
+  }
+  &-warning {
+    background: @warning-color;
+  }
+  &-success {
+    background: @success-color;
+  }
+  &-error {
+    background: @error-color;
+  }
+  &-disable {
+    opacity: .3;
   }
 }

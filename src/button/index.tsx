@@ -1,7 +1,9 @@
 import * as React from 'react';
+import TouchFeedback from 'rmc-feedback';
 import './index.less';
 
 interface Props {
+
   children: any
 
   // 样式
@@ -16,9 +18,6 @@ interface Props {
   // loading
   loading?: boolean,
 
-  // 超链接
-  href?: string,
-
   // 主题
   type?: 'primary' | 'success' | 'error' | 'warning',
 
@@ -26,7 +25,9 @@ interface Props {
   style?: string,
 
   // 大小
-  size?: 'small' | 'large'
+  size?: 'small' | 'large',
+
+  inline: boolean
 }
 
 function Button(props: Props) {
@@ -37,23 +38,43 @@ function Button(props: Props) {
     disabled=false,
     onClick=() => {},
     loading=false,
-    href,
     type='primary',
-    style={},
-    size
+    size,
+    inline
   } = props;
+
+  let {
+    style={}
+  } = props;
+
+  let isClick = false;
 
   const _onClick = () => {
     if(!disabled) {
-      onClick();
+      if(!isClick) {
+        isClick = true;
+        setTimeout(function() {
+          isClick = false;
+        }, 500);
+        onClick();
+      }
     }
   };
 
+  if(inline) {
+    style = Object.assign({}, style, {'display': 'inline-block'});
+  }
+
   return (
     <div style={style} className={`zec-button ${className || ''}`} onClick={_onClick}>
-      <div className={`zec-button-inner zec-button-${type}`}>
-        {children}
-      </div>
+      <TouchFeedback
+        activeClassName={!disabled ? 'zec-button-active' : ''}
+      >
+        <div className={`zec-button-inner zec-button-${type} ${disabled ? 'zec-button-disable': ''}`}>
+          {loading === true && '...'}
+          {children}
+        </div>
+      </TouchFeedback>
     </div>
   );
 }
