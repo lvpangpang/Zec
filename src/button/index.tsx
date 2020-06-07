@@ -24,9 +24,6 @@ interface Props {
   // 样式
   style?: string,
 
-  // 大小
-  size?: 'small' | 'large',
-
   inline: boolean
 }
 
@@ -39,7 +36,6 @@ function Button(props: Props) {
     onClick=() => {},
     loading=false,
     type='primary',
-    size,
     inline
   } = props;
 
