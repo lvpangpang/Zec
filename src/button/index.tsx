@@ -1,5 +1,6 @@
 import * as React from 'react';
 import TouchFeedback from 'rmc-feedback';
+import Icon from '../icon/index';
 import './index.less';
 
 interface Props {
@@ -66,8 +67,8 @@ function Button(props: Props) {
       <TouchFeedback
         activeClassName={!disabled ? 'zec-button-active' : ''}
       >
-        <div className={`zec-button-inner zec-button-${type} ${disabled ? 'zec-button-disable': ''}`}>
-          {loading === true && '...'}
+        <div className={`zec-button-inner zec-button-${type} ${(disabled || loading) ? 'zec-button-disable': ''}`}>
+          {loading === true && <span className='loading-right'><Icon type='loading' size='sm' /></span>}
           {children}
         </div>
       </TouchFeedback>

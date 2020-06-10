@@ -1,15 +1,12 @@
 @import '../style/index.less';
 
 .zec-button {
-  height: 48px;
-  line-height: 48px;
   font-size: @font-md;
   color: #fff;
   &-inner {
-    height: 100%;
     border-radius: @radius-md;
     text-align: center;
-    padding: 0 20px;
+    padding: 14px 20px;
   }
   &-active {
     color: @fill-tap !important;
@@ -29,5 +26,8 @@
   }
   &-disable {
     opacity: .3;
+  }
+  .loading-right {
+    margin-right: 6px;
   }
 }
