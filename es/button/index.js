@@ -1,6 +1,7 @@
 import { createElement } from 'react';
 import TouchFeedback from 'rmc-feedback';
-import { s as svgSprite, a as styleInject } from '../index-7940f4c4.js';
+import { s as svgSprite } from '../index-c2389d45.js';
+import { s as styleInject } from '../style-inject.es-1f59c1d0.js';
 
 function Icon(props) {
     var type = props.type, _a = props.size, size = _a === void 0 ? 'md' : _a, color = props.color;
