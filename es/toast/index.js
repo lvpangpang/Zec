@@ -6,37 +6,49 @@ var css_248z = "/* 主题色 */\n/* 文字色 */\n/* 文字大小 */\n/* 圆角 
 styleInject(css_248z);
 
 function Template(props) {
-    var content = props.content;
-    return (createElement("div", { className: 'zec-toast' },
+    var content = props.content, mask = props.mask;
+    return (createElement("div", { className: 'zec-toast', style: mask ? { width: '100%', height: '100%' } : {} },
         createElement("div", { className: 'content' }, content)));
 }
+var isToast = false;
 var div = document.createElement('div');
-var isOnly = true;
 var timer = null;
 function Toast(props) {
-    var content = props.content, duration = props.duration, _a = props.onClose, onClose = _a === void 0 ? function () { } : _a;
+    var content = props.content, duration = props.duration, _a = props.mask, mask = _a === void 0 ? true : _a, _b = props.onClose, onClose = _b === void 0 ? function () { } : _b;
     var remove = function () {
         timer = setTimeout(function () {
             document.body.removeChild(div);
             onClose();
-            isOnly = true;
-        }, duration || 20000);
+            isToast = false;
+        }, duration || 2000);
     };
     var add = function () {
         document.body.appendChild(div);
-        ReactDOM.render(createElement(Template, { content: content }), div);
-        isOnly = false;
+        ReactDOM.render(createElement(Template, { content: content, mask: mask }), div);
+        isToast = true;
         remove();
     };
-    if (isOnly) {
+    if (!isToast) {
         add();
     }
     else {
         document.body.removeChild(div);
         clearTimeout(timer);
-        isOnly = true;
+        isToast = false;
         add();
     }
 }
+var index = {
+    info: function (props) {
+        Toast(props);
+    },
+    hide: function () {
+        if (isToast) {
+            document.body.removeChild(div);
+            clearTimeout(timer);
+            isToast = false;
+        }
+    }
+};
 
-export default Toast;
+export default index;

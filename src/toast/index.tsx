@@ -1,34 +1,36 @@
 import * as React from 'react';
-import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './index.less';
 
 interface Props {
   content: string,
   duration?: number,
+  mask?: Boolean,
   onClose?: Function
 }
 
 function Template(props: Props) {
   const {
-    content
+    content,
+    mask
   } = props;
 
   return (
-    <div className='zec-toast'>
+    <div className='zec-toast' style={mask ? {width: '100%', height: '100%'} : {}}>
       <div className='content'>{content}</div>
     </div>
   );
 }
 
+let isToast = false;
 const div = document.createElement('div');
-let isOnly = true;
 let timer:any = null;
 
 function Toast(props: Props) {
   const {
     content,
     duration,
+    mask = true,
     onClose = () => {}
   } = props;
 
@@ -36,25 +38,36 @@ function Toast(props: Props) {
     timer = setTimeout(() => {
       document.body.removeChild(div);
       onClose();
-      isOnly = true;
-    }, duration || 20000)
+      isToast = false;
+    }, duration || 2000)
   };
 
   const add = () => {
     document.body.appendChild(div);
-    ReactDOM.render(<Template content={content} />, div);
-    isOnly = false;
+    ReactDOM.render(<Template content={content} mask={mask} />, div);
+    isToast = true;
     remove();
   };
-
-  if(isOnly) {
+  
+  if(!isToast) {
     add();
   } else {
     document.body.removeChild(div);
     clearTimeout(timer);
-    isOnly = true;
+    isToast = false;
     add();
   }
 }
 
-export default Toast;
+export default {
+  info(props: Props) {
+    Toast(props);
+  },
+  hide() {
+    if(isToast) {
+      document.body.removeChild(div);
+      clearTimeout(timer);
+      isToast = false;
+    }
+  }
+};
