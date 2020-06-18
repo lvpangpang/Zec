@@ -2,11 +2,12 @@ const fs = require('fs');
 // const babel = require('rollup-plugin-babel')
 const typescript = require('rollup-plugin-typescript2')
 const postcss = require('rollup-plugin-postcss');
+const clear = require('rollup-plugin-clear');
 const tsConfig = require('./tsconfig.json');
 
 let list = fs.readdirSync('./src');
 let res = {
-  // index: './src/index.ts'
+  index: './src/index.ts'
 };
 list.forEach((item) => {
   if(!(item === 'index.ts' || item === 'style')) {
@@ -27,6 +28,9 @@ export default {
   },
   // 是否开启代码分割
   plugins: [
+    clear({
+      targets: ['es']
+    }),
     postcss(),
     typescript(tsConfig.compilerOptions),
     // babel({
