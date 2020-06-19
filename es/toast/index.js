@@ -1,7 +1,7 @@
 import { createElement } from 'react';
 import '../style-inject.es-1f59c1d0.js';
 import ReactDOM from 'react-dom';
-import '../index-dadfd656.js';
+import '../index-a91c0d82.js';
 
 function Template(props) {
     var content = props.content, mask = props.mask;

@@ -6,7 +6,7 @@ import { I as Icon } from '../index-78b44168.js';
 export { I as Icon } from '../index-78b44168.js';
 import ReactDOM from 'react-dom';
 import '../index-b97a91d7.js';
-import '../index-dadfd656.js';
+import '../index-a91c0d82.js';
 
 function Button(props) {
     var children = props.children, className = props.className, _a = props.disabled, disabled = _a === void 0 ? false : _a, _b = props.onClick, onClick = _b === void 0 ? function () { } : _b, _c = props.loading, loading = _c === void 0 ? false : _c, _d = props.type, type = _d === void 0 ? 'primary' : _d, inline = props.inline;
