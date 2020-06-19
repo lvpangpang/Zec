@@ -1,8 +1,8 @@
 import { createElement } from 'react';
 import TouchFeedback from 'rmc-feedback';
-import '../index-c2389d45.js';
+import '../index-9d68b195.js';
 import '../style-inject.es-1f59c1d0.js';
-import { I as Icon } from '../index-4b0789d4.js';
+import { I as Icon } from '../index-78b44168.js';
 
 function Button(props) {
     var children = props.children, className = props.className, _a = props.disabled, disabled = _a === void 0 ? false : _a, _b = props.onClick, onClick = _b === void 0 ? function () { } : _b, _c = props.loading, loading = _c === void 0 ? false : _c, _d = props.type, type = _d === void 0 ? 'primary' : _d, inline = props.inline;

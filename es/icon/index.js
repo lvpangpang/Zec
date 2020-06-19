@@ -1,5 +1,5 @@
 import { createElement } from 'react';
-import { s as svgSprite } from '../index-c2389d45.js';
+import { s as svgSprite } from '../index-9d68b195.js';
 import '../style-inject.es-1f59c1d0.js';
 
 function Icon(props) {

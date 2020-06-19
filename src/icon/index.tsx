@@ -5,7 +5,7 @@ import './index.less';
 interface Props {
   type: string,
   size?: 'xs' | 'sm' | 'md' | 'lg',
-  color?: string
+  color?: string 
 }
 
 function Icon(props: Props) {
