@@ -4,6 +4,7 @@ import Loading from './loading/index';
 import Toast from './toast/index';
 import List from './list/index';
 import Radio from './radio/index';
+import Checkbox from './checkbox/index';
 
 export {
   Button,
@@ -11,5 +12,6 @@ export {
   Loading,
   Toast,
   List,
-  Radio
+  Radio,
+  Checkbox
 }

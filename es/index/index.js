@@ -10,6 +10,7 @@ import '../index-b97a91d7.js';
 import '../index-a91c0d82.js';
 import '../index-a6436576.js';
 import '../index-6d37696c.js';
+import { _ as __spreadArrays } from '../index-fe7c809b.js';
 
 function Button(props) {
     var children = props.children, className = props.className, _a = props.disabled, disabled = _a === void 0 ? false : _a, _b = props.onClick, onClick = _b === void 0 ? function () { } : _b, _c = props.loading, loading = _c === void 0 ? false : _c, _d = props.type, type = _d === void 0 ? 'primary' : _d, inline = props.inline;
@@ -113,8 +114,8 @@ function List(props) {
 }
 
 function Radio(props) {
-    var children = props.children, value = props.value, onChange = props.onChange;
-    var _a = useState(value), radioValue = _a[0], setRadioValue = _a[1];
+    var children = props.children, value = props.value, _a = props.onChange, onChange = _a === void 0 ? function () { } : _a;
+    var _b = useState(value), radioValue = _b[0], setRadioValue = _b[1];
     return (createElement("div", null, Children.map(children, function (child) {
         return cloneElement(child, {
             label: child.props.children,
@@ -141,4 +142,40 @@ function RadioItem(props) {
 }
 Radio.RadioItem = RadioItem;
 
-export { Button, List, index as Loading, Radio, index$1 as Toast };
+function Checkbox(props) {
+    var children = props.children, value = props.value, _a = props.onChange, onChange = _a === void 0 ? function () { } : _a;
+    var _b = useState(value), checkboxValue = _b[0], setCheckboxValue = _b[1];
+    return (createElement("div", { className: 'zec-checkbox-box' }, Children.map(children, function (child) {
+        return cloneElement(child, {
+            label: child.props.children,
+            value: child.props.value,
+            checkboxValue: checkboxValue,
+            disabled: child.props.disabled,
+            onClick: function () {
+                var cValue = child.props.value;
+                var newData = __spreadArrays(checkboxValue);
+                if (newData.indexOf(cValue) !== -1) {
+                    newData.splice(checkboxValue.indexOf(cValue), 1);
+                }
+                else {
+                    newData.push(cValue);
+                }
+                setCheckboxValue(newData);
+                onChange(newData);
+            }
+        });
+    })));
+}
+function CheckboxItem(props) {
+    var value = props.value, label = props.label, checkboxValue = props.checkboxValue, disabled = props.disabled, onClick = props.onClick;
+    return (createElement("div", { className: "zec-checkbox " + (disabled ? 'zec-checkbox-disabled' : ''), onClick: function () { if (!disabled) {
+            onClick();
+        } } },
+        createElement("div", { className: "content" },
+            createElement("div", { className: "circle " + ((checkboxValue.indexOf(value) !== -1 && !disabled) ? 'active' : '') + " " },
+                createElement("div", { className: "fork" })),
+            createElement("div", { className: "label" }, label))));
+}
+Checkbox.CheckboxItem = CheckboxItem;
+
+export { Button, Checkbox, List, index as Loading, Radio, index$1 as Toast };

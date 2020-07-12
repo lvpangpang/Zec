@@ -4,12 +4,12 @@ import './index.less';
 
 interface RadioProps {
   children: any,
-  value: any,
+  value: number | string,
   onChange: Function
 }
 
 interface RadioItemProps {
-  value: any,
+  value: number | string,
   label: string,
   radioValue: any,
   disabled?: boolean,
@@ -20,7 +20,7 @@ function Radio(props: RadioProps) {
   const {
     children,
     value,
-    onChange
+    onChange = () => {}
   } = props;
 
   const [radioValue, setRadioValue] = useState(value);

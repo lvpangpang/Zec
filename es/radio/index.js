@@ -3,8 +3,8 @@ import '../style-inject.es-1f59c1d0.js';
 import '../index-6d37696c.js';
 
 function Radio(props) {
-    var children = props.children, value = props.value, onChange = props.onChange;
-    var _a = useState(value), radioValue = _a[0], setRadioValue = _a[1];
+    var children = props.children, value = props.value, _a = props.onChange, onChange = _a === void 0 ? function () { } : _a;
+    var _b = useState(value), radioValue = _b[0], setRadioValue = _b[1];
     return (createElement("div", null, Children.map(children, function (child) {
         return cloneElement(child, {
             label: child.props.children,
