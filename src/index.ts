@@ -5,6 +5,7 @@ import Toast from './toast/index';
 import List from './list/index';
 import Radio from './radio/index';
 import Checkbox from './checkbox/index';
+import Switch from './switch/index';
 
 export {
   Button,
@@ -13,5 +14,6 @@ export {
   Toast,
   List,
   Radio,
-  Checkbox
+  Checkbox,
+  Switch
 }
