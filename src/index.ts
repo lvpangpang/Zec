@@ -6,6 +6,7 @@ import List from './list/index';
 import Radio from './radio/index';
 import Checkbox from './checkbox/index';
 import Switch from './switch/index';
+import Input from './input/index';
 
 export {
   Button,
@@ -15,5 +16,6 @@ export {
   List,
   Radio,
   Checkbox,
-  Switch
+  Switch,
+  Input
 }

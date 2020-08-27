@@ -1,7 +1,7 @@
 import { createElement, useState, Children, cloneElement } from 'react';
 import TouchFeedback from 'rmc-feedback';
 import '../index-9d68b195.js';
-import { s as styleInject } from '../style-inject.es-1f59c1d0.js';
+import '../style-inject.es-1f59c1d0.js';
 import { I as Icon } from '../index-39086b78.js';
 export { I as Icon } from '../index-39086b78.js';
 import '../index-9e66fb76.js';
@@ -11,6 +11,8 @@ import '../index-a91c0d82.js';
 import '../index-a6436576.js';
 import '../index-6d37696c.js';
 import { _ as __spreadArrays } from '../index-fe7c809b.js';
+import '../index-a0ac6e57.js';
+import '../index-93def554.js';
 
 function Button(props) {
     var children = props.children, className = props.className, _a = props.disabled, disabled = _a === void 0 ? false : _a, _b = props.onClick, onClick = _b === void 0 ? function () { } : _b, _c = props.loading, loading = _c === void 0 ? false : _c, _d = props.type, type = _d === void 0 ? 'primary' : _d, inline = props.inline;
@@ -178,9 +180,6 @@ function CheckboxItem(props) {
 }
 Checkbox.CheckboxItem = CheckboxItem;
 
-var css_248z = "/* 主题色 */\n/* 文字色 */\n/* 文字大小 */\n/* 圆角 */\n/* 图标大小 */\n/* 水平间距 */\n/* 垂直间距 */\n.zec-switch {\n  height: 48px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 15px;\n  border-bottom: 1px solid #ddd;\n}\n.zec-switch .zec-name {\n  width: 50%;\n}\n.zec-switch .zec-conetnt {\n  width: 40%;\n}\n.zec-switch .switch {\n  position: relative;\n  width: 51px;\n  height: 31px;\n  z-index: 0;\n  -webkit-appearance: none;\n  border-radius: 31px;\n  background: #e5e5e5;\n  margin: 0px;\n  padding: 0px;\n  border-width: 0px;\n  border-style: initial;\n  border-color: initial;\n  border-image: initial;\n  transition: all 0.3s ease 0s;\n  cursor: pointer;\n}\n.zec-switch .switch::after,\n.zec-switch .switch::before {\n  content: '';\n  position: absolute;\n  left: 1.5px;\n  top: 1.5px;\n  height: 28px;\n  border-radius: 28px;\n  background: #ffffff;\n  transition: all 0.2s ease 0s;\n}\n.zec-switch .switch::before {\n  width: 48px;\n  box-sizing: border-box;\n  z-index: 1;\n  transform: scale(1);\n}\n.zec-switch .switch::after {\n  width: 28px;\n  z-index: 2;\n  transform: translateX(0px);\n  box-shadow: rgba(0, 0, 0, 0.21) 2px 2px 4px;\n}\n.zec-switch .switch-active {\n  background: #4dd865;\n}\n.zec-switch .switch-active::before {\n  transform: scale(0);\n}\n.zec-switch .switch-active::after {\n  transform: translateX(20px);\n}\n.zec-switch .switch-disbled {\n  opacity: 0.3;\n}\n";
-styleInject(css_248z);
-
 function Switch(props) {
     var _a = props.checked, checked = _a === void 0 ? false : _a, _b = props.disabled, disabled = _b === void 0 ? false : _b, _c = props.color, color = _c === void 0 ? '#4dd865' : _c, name = props.name, _d = props.onChange, onChange = _d === void 0 ? function () { } : _d;
     var _e = useState(checked), isChecked = _e[0], setIsChecked = _e[1];
@@ -196,4 +195,16 @@ function Switch(props) {
                 } }))));
 }
 
-export { Button, Checkbox, List, index as Loading, Radio, Switch, index$1 as Toast };
+function Input(props) {
+    var _a = props.className, className = _a === void 0 ? '' : _a, placeholder = props.placeholder, _b = props.type, type = _b === void 0 ? 'text' : _b, value = props.value, disabled = props.disabled, maxLength = props.maxLength, _c = props.onChange, onChange = _c === void 0 ? function (val) { } : _c;
+    var _d = useState(value), myValue = _d[0], setMyValue = _d[1];
+    var myChange = function (e) {
+        var value = e.target.value;
+        setMyValue(value);
+        onChange(value);
+    };
+    return (createElement("div", { className: "zec-input " + className },
+        createElement("input", { className: 'input', placeholder: placeholder, type: type, maxLength: maxLength, value: myValue, disabled: disabled, onChange: myChange })));
+}
+
+export { Button, Checkbox, Input, List, index as Loading, Radio, Switch, index$1 as Toast };
